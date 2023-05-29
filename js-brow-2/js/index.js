@@ -40,7 +40,7 @@ function renderizarTareas() {
       tareasTerminadas.innerHTML += `
         <li class="tarea">
           <div class="hecha">
-              <i class="fa-regular fa-circle-check"></i>
+            <i class="fa-regular fa-circle-check"></i>
           </div>
           <div class="title">
             <p class="nombre ${tarea.completed ? ' is-completed' : ''}">${tarea.title}</p>
@@ -90,13 +90,9 @@ function handleSubmit(event) {
 };
 
 function handleCheckTask(event) {
-  if (event.target.classList.contains("change")) {
-    const id = parseInt(event.target.id);
-    cambiarEstadoTarea(id);
-  } else if (event.target.classList.contains("borrar")) {
-    const id = parseInt(event.target.id);
-    eliminarTarea(id);
-  }
+  const id = parseInt(event.target.id);
+  if (event.target.matches(".change")) cambiarEstadoTarea(id);
+  else if (event.target.matches(".borrar")) eliminarTarea(id);
 };
 
 function handleDelete() {
