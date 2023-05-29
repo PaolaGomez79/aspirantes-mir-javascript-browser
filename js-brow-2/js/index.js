@@ -39,16 +39,16 @@ function renderizarTareas() {
       //lo mandamos al listado de tareas completadas
       tareasTerminadas.innerHTML += `
         <li class="tarea">
-            <div class="hecha">
-                <i class="fa-regular fa-circle-check"></i>
+          <div class="hecha">
+              <i class="fa-regular fa-circle-check"></i>
+          </div>
+          <div class="title">
+            <p class="nombre ${tarea.completed ? ' is-completed' : ''}">${tarea.title}</p>
+            <div class="cambios-estados">
+              <button class="change incompleta" id="${tarea.id}" ><i class="fa-solid fa-rotate-left"></i></button>
+              <button class="borrar" id="${tarea.id}"><i class="fa-regular fa-trash-can"></i></button>
             </div>
-            <div class="title">
-                <p class="nombre ${tarea.completed ? ' is-completed' : ''}">${tarea.title}</p>
-                <div class="cambios-estados">
-                    <button class="change incompleta" id="${tarea.id}" ><i class="fa-solid fa-rotate-left"></i></button>
-                    <button class="borrar" id="${tarea.id}"><i class="fa-regular fa-trash-can"></i></button>
-                </div>
-            </div>
+          </div>
         </li>
       `;
     } else {
@@ -83,24 +83,21 @@ function eliminarTarea(id){
 };
 
 
-tareas.addEventListener("click", (e) => {
-  console.log(e.target);
-  if (e.target.classList.contains("change")) {
-    const id = parseInt(e.target.getAttribute("id"));
-    cambiarEstadoTarea(id);
-  } else if (e.target.classList.contains("borrar")) {
-    const id = parseInt(e.target.getAttribute("id"));
-    eliminarTarea(id);
-  }
-});
-
-
 function handleSubmit(event) {
   event.preventDefault();
   agregarTarea(event);
 
 };
 
+function handleCheckTask(event) {
+  if (event.target.classList.contains("change")) {
+    const id = parseInt(event.target.id);
+    cambiarEstadoTarea(id);
+  } else if (event.target.classList.contains("borrar")) {
+    const id = parseInt(event.target.id);
+    eliminarTarea(id);
+  }
+};
 
 function handleDelete() {
   listaTareas = listaTareas.filter(tarea => !tarea.completed);
@@ -108,4 +105,5 @@ function handleDelete() {
 };
 
 formCrearTarea.addEventListener("submit", handleSubmit);
+tareas.addEventListener('click', handleCheckTask);
 botonBorrarTareas.addEventListener('click', handleDelete);
