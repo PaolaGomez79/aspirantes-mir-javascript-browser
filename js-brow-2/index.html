@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TODO LIST</title>
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <header class="container">
+        <h1>To-Do App</h1>
+        <img src="./assets/logo-white-2x.webp" alt="logo Make It Real">
+    </header>
+    <main class="container">
+        <!-- carga de tareas -->
+        <form class="nueva-tarea">
+            <input id="nuevaTarea" type="text" placeholder="Ingresa tu nueva tarea">
+            <button type="submit"><i class="fa-solid fa-pencil"></i> Crear tarea</button>
+        </form>
+        <section class="tareas">
+            <!-- contenedor vacío para las tareas que pasen a pendientes -->
+            <ul class="tareas-pendientes">
+
+            </ul>
+
+            <h2>Tareas finalizadas <span id="cantidad-tareas">0</span></h2>
+            <!-- contenedor vacío para las tareas que pasen a terminadas -->
+            <ul class="tareas-terminadas">
+
+            </ul>
+        </section>
+        <div class="borrar-tareas">
+            <button id="delete-completed"><i class="fa-regular fa-trash-can"></i> Delete all done</button>
+        </div>
+    </main>
+    <script src="./js/index.js"></script>
+</body>
+
+</html>
