@@ -9,22 +9,6 @@ const botonBorrarTareas = document.getElementById('delete-completed');
 let listaTareas = [];
 let contadorId = 1;
 
-function agregarTarea(event) {
-  event.preventDefault();
-  const value = inputNuevaTarea.value.trim();
-  if(value != '') {
-    const tarea = {
-      id: contadorId,
-      title: value,
-      completed: false
-    };
-    listaTareas.push(tarea);
-    contadorId++;
-    inputNuevaTarea.value = '';
-    renderizarTareas();
-  }    
-};
-
 
 function renderizarTareas() {
   // obtengo listados y limpio cualquier contenido interno
@@ -68,6 +52,23 @@ function renderizarTareas() {
 };
 
 
+function agregarTarea(event) {
+  event.preventDefault();
+  const value = inputNuevaTarea.value.trim();
+  if(value != '') {
+    const tarea = {
+      id: contadorId,
+      title: value,
+      completed: false
+    };
+    listaTareas.push(tarea);
+    contadorId++;
+    inputNuevaTarea.value = '';
+    renderizarTareas();
+  }    
+};
+
+
 function cambiarEstadoTarea(id) {
   const tarea = listaTareas.find( tarea => tarea.id === id );
   if(tarea) {
@@ -79,7 +80,7 @@ function cambiarEstadoTarea(id) {
 
 function eliminarTarea(id){
   listaTareas = listaTareas.filter(tarea => tarea.id !== id );
-  renderizarTareas(listaTareas); 
+  renderizarTareas(); 
 };
 
 
@@ -89,16 +90,19 @@ function handleSubmit(event) {
 
 };
 
+
 function handleCheckTask(event) {
   const id = parseInt(event.target.id);
   if (event.target.matches(".change")) cambiarEstadoTarea(id);
   else if (event.target.matches(".borrar")) eliminarTarea(id);
 };
 
+
 function handleDelete() {
   listaTareas = listaTareas.filter(tarea => !tarea.completed);
-  renderizarTareas(listaTareas);
+  renderizarTareas();
 };
+
 
 formCrearTarea.addEventListener("submit", handleSubmit);
 tareas.addEventListener('click', handleCheckTask);

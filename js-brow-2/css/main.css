@@ -63,7 +63,6 @@ form {
 }
 
 form input {
-
     flex-grow: 1;
     border-radius: 100vh;
     padding: .3rem 1rem;
@@ -122,10 +121,11 @@ main .borrar-tareas {
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
-    width: 22px;
-    height: 22px;
     border: 2px solid var(--app-azul);
     border-radius: 50%;
+    cursor: pointer;
+    width: 1.4rem;
+    height: 1.4rem;
     outline: none;
 }
 
@@ -190,11 +190,12 @@ main .borrar-tareas {
 
 .tareas-pendientes .tarea button,
 .tareas-terminadas .tarea .title button {
-    font-size: .9rem;
+    border-radius: .3rem;
     color: white;
+    cursor: pointer;
+    font-size: .9rem;
     margin-left: .6rem;
     padding: .4rem;
-    border-radius: .3rem;
 }
 
 .tareas-pendientes .tarea button:hover,
