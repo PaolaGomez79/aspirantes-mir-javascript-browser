@@ -1,0 +1,142 @@
+body {
+  background-color: #272727;
+  font-family: Open Sans, sans-serif;
+}
+
+div {
+  align-items: flex-start;
+  border-bottom: 1px solid #adb5bd;
+  display: flex;
+  height: 200px;
+  justify-content: space-between;
+  padding: 50px 50px 0px 0;
+}
+
+.container > ul {
+  display: flex;
+  justify-content:space-evenly;
+  width: 1000px;
+} 
+
+.container > ul > li {
+  background-color: #f04500;
+  border-radius: 5px;
+  color: #fff;
+  text-align: center;
+  width: 95px;
+}
+
+.container ul ul > li {
+  padding: 10px 10px;
+  text-align: left;
+  width: 95px;
+}
+
+.container ul ul ul > li {
+  width: 95px;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding:0;
+  }
+  
+  li {
+    display: inline-block;
+    padding: 10px 10px;
+    position: relative;
+  }
+  
+  ul ul {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+  }
+
+  ul ul.show {
+    display: block;
+  }
+  
+  ul ul ul {
+    left: 100%;
+    top: 0;
+  }
+
+  a {
+    color: #fff;
+    text-decoration: none;
+  }
+
+  .container li.active {
+    background-color: blue;
+  }
+
+  button {
+    border: none;
+    color: #f04500; 
+    font-size: 10px;
+    font-weight: 900;
+    margin-left: 5px;
+  
+  }
+
+ 
+  @media (max-width: 992px){
+    div {
+      flex-direction: column;
+      border-bottom: none;
+      justify-content: space-around;
+      padding: 50px;
+    }
+    div img {
+      max-width: 180px;
+      min-width: 180px;
+      order: -1;
+    }
+    .container > ul {
+      justify-content: space-between;
+      width: 650px;
+    } 
+    ul ul ul{
+      left: 50%;
+      top: 100%;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    div {
+      height: auto;
+      gap: 30px;
+    }
+    .container > ul {
+      flex-direction: column;
+      gap: 10px;
+    }
+    .container > ul > li {
+      gap: 10px;
+    }
+    div img {
+      max-width: 150px;
+      min-width: 150px;
+      order: -1;
+    }
+    ul {
+      padding-inline-start: 0;
+    }
+    ul ul {
+      left: 90%;
+      top: 20%;
+      width: 220px; 
+    } 
+    ul ul.show > li {
+      display: inline;
+      padding: 0;
+      margin-left: 10px;
+    }
+    ul ul ul{
+      left: 20%;
+      top: 150%;
+    }
+  }
